@@ -1,0 +1,11 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="item_poster_height">460dp</dimen>
+    <dimen name="overview_margin">30dp</dimen>
+    <dimen name="margin_top">40dp</dimen>
+    <dimen name="text_size">20sp</dimen>
+    <dimen name="title_size">30sp</dimen>
+    <dimen name="margin_general">8dp</dimen>
+    <dimen name="description_size">30sp</dimen>
+    <dimen name="title_movie_size">20sp</dimen>
+</resources>

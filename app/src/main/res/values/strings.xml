@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Movies</string>
+    <string name="action_popular">Most Popular</string>
+    <string name="action_top_rated">Top Rated</string>
+    <bool name="isTablet">false</bool>
+    <string name="title_activity_movie_detail">Movie Details</string>
+    <string name="title_activity_movie">Movies</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_release_date">Release Date</string>
+    <string name="title_Overview">Description</string>
+    <string name="title_vote_average">Vote Average</string>
+    <string name="title_movie">Original Title</string>
+</resources>

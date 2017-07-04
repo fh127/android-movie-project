@@ -1,0 +1,12 @@
+<resources>
+    <dimen name="margin_left">16dp</dimen>
+    <dimen name="item_poster_height">300dp</dimen>
+    <dimen name="dimen_zero">0dp</dimen>
+    <dimen name="overview_margin">20dp</dimen>
+    <dimen name="margin_top">30dp</dimen>
+    <dimen name="text_size">10sp</dimen>
+    <dimen name="title_size">20sp</dimen>
+    <dimen name="margin_general">4dp</dimen>
+    <dimen name="description_size">20sp</dimen>
+    <dimen name="title_movie_size">10sp</dimen>
+</resources>
