@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Movies</string>
     <string name="action_popular">Most Popular</string>
-    <string name="action_top_rated">Top Rated</string>
+    <string name="action_top_rated">Highest Rated</string>
     <bool name="isTablet">true</bool>
 </resources>
