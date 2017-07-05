@@ -21,6 +21,8 @@ import java.util.Scanner;
 public class MovieApi {
 
     private static final String TAG = MovieApi.class.getSimpleName();
+    private static final String TAG_TITLE = "URI ";
+    private static final String DELIMIT= "\\A";
     private static final String SERVER_BASE_URL = "https://api.themoviedb.org/3/movie";
     private static final String POPULAR_PREFIX = "/popular";
     private static final String TOP_RATED_PREFIX = "/top_rated";
@@ -46,7 +48,7 @@ public class MovieApi {
             e.printStackTrace();
         }
 
-        Log.v(TAG, "Built URI " + url);
+        Log.v(TAG, TAG_TITLE + url);
 
         return url;
     }
@@ -65,7 +67,7 @@ public class MovieApi {
         try {
             InputStream in = urlConnection.getInputStream();
             Scanner scanner = new Scanner(in);
-            scanner.useDelimiter("\\A");
+            scanner.useDelimiter(DELIMIT);
             boolean hasInput = scanner.hasNext();
             if (hasInput) {
                 return scanner.next();
