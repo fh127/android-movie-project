@@ -20,7 +20,7 @@ public class MoviePresenterImpl implements MoviePresenter, MovieInteractor.OnRes
 
     @Override
     public void loadMovies(boolean sort) {
-        if (NetworkUtils.isNetworkAvailable(view.getContextReference())) {
+        if (NetworkUtils.isNetworkConnection(view.getContextReference())) {
             view.onShowLoader(true);
             MovieInteractor interactor = new MovieInteractorImpl();
             interactor.getMovies(sort, this);

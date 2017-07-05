@@ -25,7 +25,6 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 /**
- * https://www.tutorialspoint.com/android/android_fragments.htm
  * A placeholder fragment containing a simple view.
  */
 public class MovieFragment extends Fragment
