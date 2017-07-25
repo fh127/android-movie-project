@@ -1,5 +1,6 @@
 package com.example.android.popular.movie.view.ui;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.android.popular.movie.R;
@@ -14,6 +15,7 @@ import com.example.android.popular.movie.view.adapter.MovieAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -34,6 +36,7 @@ public class MovieFragment extends Fragment
     private ProgressBar loader;
     private RecyclerView movieRecyclerView;
     private MovieAdapter movieAdapter;
+    private List<Movie> movies;
 
     public MovieFragment() {
 
@@ -44,6 +47,15 @@ public class MovieFragment extends Fragment
         final View view = inflater.inflate(R.layout.fragment_main, container, false);
         initUI(view);
         return view;
+    }
+
+    private void restoreSate(Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            movies = savedInstanceState.getParcelableArrayList(Constanst.MOVIES_KEY);
+            showMovies(movies);
+        } else {
+            presenter.loadMovies(false);
+        }
     }
 
     private void initUI(View view) {
@@ -62,10 +74,10 @@ public class MovieFragment extends Fragment
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         presenter = new MoviePresenterImpl(this);
-        presenter.loadMovies(false);
+        restoreSate(savedInstanceState);
     }
 
     @Override
@@ -80,6 +92,11 @@ public class MovieFragment extends Fragment
 
     @Override
     public void onMoviesLoaded(final List<Movie> movies) {
+        showMovies(movies);
+    }
+
+    private void showMovies(final List<Movie> movies) {
+        this.movies = movies;
         movieRecyclerView.post(new Runnable() {
             @Override
             public void run() {
@@ -107,12 +124,18 @@ public class MovieFragment extends Fragment
     }
 
     @Override
-    public void onClick(Movie movie) {
+    public void onClick(Movie jsonMovie) {
         Intent intent = new Intent(getContext(), MovieDetailActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putSerializable(Constanst.MOVIE_EXTRA, movie);
+        bundle.putParcelable(Constanst.MOVIE_EXTRA, jsonMovie);
         intent.putExtras(bundle);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         getActivity().startActivity(intent);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putParcelableArrayList(Constanst.MOVIES_KEY, (ArrayList<? extends Parcelable>) movies);
+        super.onSaveInstanceState(outState);
     }
 }

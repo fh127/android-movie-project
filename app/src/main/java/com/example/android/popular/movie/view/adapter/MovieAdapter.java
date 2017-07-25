@@ -37,7 +37,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
     }
 
     /**
-     * Cache of the children views for a Movie list item.
+     * Cache of the children views for a JsonMovie list item.
      */
     public class MovieAdapterViewHolder extends RecyclerView.ViewHolder implements OnClickListener {
         public final ImageView imageView;
@@ -75,7 +75,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
     @Override
     public void onBindViewHolder(MovieAdapterViewHolder movieAdapterViewHolder, int position) {
         Movie movie = movies.get(position);
-        String imageUrl = MovieApi.getImageUri(movie);
+        String imageUrl = MovieApi.getImageUri(movie.getBackdropPath());
         Context context = movieAdapterViewHolder.imageView.getContext();
         Picasso.with(context)
                 .load(imageUrl)

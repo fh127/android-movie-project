@@ -44,15 +44,15 @@ public class MovieDetailActivity extends AppCompatActivity {
     private void loadMovieDetails() {
         if (getIntent() != null) {
             Bundle bundle = getIntent().getExtras();
-            Movie movie = (Movie) bundle.getSerializable(Constanst.MOVIE_EXTRA);
+            Movie movie = bundle.getParcelable(Constanst.MOVIE_EXTRA);
             assert movie != null;
             getSupportActionBar().setTitle(movie.getTitle());
             title.setText(movie.getOriginalTitle());
             title.setSelected(true);
             description.setText(movie.getOverview());
             releaseDate.setText(movie.getReleaseDate());
-            userRating.setText(movie.getVoteAverage().toString());
-            Picasso.with(this).load(MovieApi.getImageUri(movie)).into(image);
+            userRating.setText(String.valueOf(movie.getVoteAverage()));
+            Picasso.with(this).load(MovieApi.getImageUri(movie.getBackdropPath())).into(image);
         }
     }
 

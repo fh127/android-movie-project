@@ -1,18 +1,16 @@
 package com.example.android.popular.movie.model.api;
 
-import android.net.Uri;
-import android.util.Log;
-
-import com.example.android.popular.movie.R;
-import com.example.android.popular.movie.app.MovieApplication;
-import com.example.android.popular.movie.model.entity.Movie;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
+import com.example.android.popular.movie.R;
+import com.example.android.popular.movie.app.MovieApplication;
+
+import android.net.Uri;
+import android.util.Log;
 
 /**
  * Created by fabian.hoyos on 1/07/2017.
@@ -90,11 +88,11 @@ public class MovieApi {
 
     /**
      * get image base url
-     * @param movie
+     * @param imageUrl
      * @return
      */
-    public static String getImageUri(Movie movie) {
-        return IMAGE_BASE_URL.concat(IMAGE_SIZE).concat(movie.getBackdropPath());
+    public static String getImageUri(String imageUrl) {
+        return IMAGE_BASE_URL.concat(IMAGE_SIZE).concat(imageUrl);
     }
 
 }

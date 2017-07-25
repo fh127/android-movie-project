@@ -2,6 +2,7 @@ package com.example.android.popular.movie.presenter;
 
 import android.content.Context;
 
+import com.example.android.popular.movie.model.entity.JsonMovie;
 import com.example.android.popular.movie.model.entity.Movie;
 
 import java.util.List;
