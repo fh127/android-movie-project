@@ -1,4 +1,5 @@
 <resources>
+    <dimen name="fab_margin">16dp</dimen>
     <dimen name="margin_left">16dp</dimen>
     <dimen name="item_poster_height">300dp</dimen>
     <dimen name="dimen_zero">0dp</dimen>
@@ -9,4 +10,12 @@
     <dimen name="margin_general">4dp</dimen>
     <dimen name="description_size">20sp</dimen>
     <dimen name="title_movie_size">10sp</dimen>
+    <dimen name="height_separator">1dp</dimen>
+    <dimen name="margin_item_video">40dp</dimen>
+    <dimen name="height_review_container">200dp</dimen>
+    <dimen name="height_autor_container">40dp</dimen>
+    <dimen name="height_content_container">136dp</dimen>
+    <dimen name="margin_small_view">8dp</dimen>
+    <dimen name="text_medium">15sp</dimen>
+    <dimen name="margin_xsmall">4dp</dimen>
 </resources>

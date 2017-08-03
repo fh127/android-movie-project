@@ -10,7 +10,6 @@ import android.preference.PreferenceManager;
 
 public class PreferenceUtils {
 
-
     private static PreferenceUtils instance = new PreferenceUtils();
     private SharedPreferences sharedpreferences;
 
@@ -32,11 +31,19 @@ public class PreferenceUtils {
         return sharedpreferences.getString(key, null);
     }
 
+    public int getIntValue(String key) {
+        return sharedpreferences.getInt(key, -1);
+    }
+
     public void removeKey(String key) {
         editor.remove(key).apply();
     }
 
     public void setStringValue(String key, String value) {
         editor.putString(key, value).apply();
+    }
+
+    public void setIntValue(String key, int value) {
+        editor.putInt(key, value).apply();
     }
 }

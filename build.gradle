@@ -9,15 +9,23 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        // Room
+
     }
 }
 
 allprojects {
     repositories {
         mavenCentral()
+        maven { url 'https://maven.google.com' }
     }
 }
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
+
+

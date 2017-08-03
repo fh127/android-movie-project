@@ -14,10 +14,16 @@
         android:title="@string/action_top_rated"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_favorites"
+        android:orderInCategory="100"
+        android:title="@string/action_favorites"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/action_movies_message"
+        android:enabled="false"
+        android:menuCategory="system"
         android:orderInCategory="100"
         android:title="@string/action_popular"
-        android:menuCategory="system"
-        android:enabled="false"
         app:showAsAction="ifRoom" />
 </menu>

@@ -2,6 +2,7 @@
     <string name="app_name">Movies</string>
     <string name="action_popular">Most Popular</string>
     <string name="action_top_rated">Highest Rated</string>
+    <string name="action_favorites">Favorites</string>
     <bool name="isTablet">false</bool>
     <string name="title_activity_movie_detail">Movie Details</string>
     <string name="title_activity_movie">Movies</string>
@@ -10,4 +11,7 @@
     <string name="title_Overview">Description</string>
     <string name="title_vote_average">Vote Average</string>
     <string name="title_movie">Original Title</string>
+    <string name="title_video">Trailers</string>
+    <string name="title_review">Reviews</string>
+    <string name="loading_movie_details">Loading Videos and  Reviews ...</string>
 </resources>

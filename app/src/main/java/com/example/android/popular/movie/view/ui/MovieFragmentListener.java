@@ -6,6 +6,6 @@ package com.example.android.popular.movie.view.ui;
 
 public interface MovieFragmentListener {
 
-    void sortMovies(boolean sort);
+    void sortMovies(int option);
 
 }

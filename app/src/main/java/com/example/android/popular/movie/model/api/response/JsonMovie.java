@@ -1,4 +1,4 @@
-package com.example.android.popular.movie.model.entity;
+package com.example.android.popular.movie.model.api.response;
 
 import java.io.Serializable;
 import java.util.List;

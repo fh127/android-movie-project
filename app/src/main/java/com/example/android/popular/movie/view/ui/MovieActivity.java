@@ -2,8 +2,8 @@ package com.example.android.popular.movie.view.ui;
 
 import com.example.android.popular.movie.R;
 import com.example.android.popular.movie.utils.Constanst;
+import com.example.android.popular.movie.utils.MovieUtils;
 import com.example.android.popular.movie.utils.PreferenceUtils;
-
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.menu.ActionMenuItemView;
@@ -34,20 +34,17 @@ public class MovieActivity extends AppCompatActivity {
             menu.findItem(R.id.action_movies_message).setTitle(menuTitleOptionSelected);
         }
         return true;
-
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        int option = MovieUtils.movieMenuUiOption.get(item.getItemId());
         ActionMenuItemView menuItem = (ActionMenuItemView) findViewById(R.id.action_movies_message);
         menuItem.setTitle(item.getTitle());
         PreferenceUtils.getInstance().setStringValue(Constanst.MENU_ITEM_OPTION, item.getTitle().toString());
-        fragmentListener.sortMovies(item.getItemId() == R.id.action_top_rated_movies);
-
-        return super.onOptionsItemSelected(item);
+        PreferenceUtils.getInstance().setIntValue(Constanst.MENU_ITEM_ID, option);
+        fragmentListener.sortMovies(option);
+        return true;
     }
 
 }

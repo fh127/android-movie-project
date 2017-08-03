@@ -1,26 +1,20 @@
 package com.example.android.popular.movie.view.ui;
 
 import com.example.android.popular.movie.R;
-import com.example.android.popular.movie.model.api.MovieApi;
 import com.example.android.popular.movie.model.entity.Movie;
 import com.example.android.popular.movie.utils.Constanst;
-import com.squareup.picasso.Picasso;
+import com.example.android.popular.movie.utils.MovieUtils;
+import com.example.android.popular.movie.utils.PreferenceUtils;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 public class MovieDetailActivity extends AppCompatActivity {
-
-    private ImageView image;
-    private TextView description;
-    private TextView releaseDate;
-    private TextView userRating;
-    private TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,26 +27,10 @@ public class MovieDetailActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-        title = (TextView) findViewById(R.id.title_view);
-        image = (ImageView) findViewById(R.id.image_view_poster);
-        description = (TextView) findViewById(R.id.text_view_overview);
-        releaseDate = (TextView) findViewById(R.id.text_view_release_date);
-        userRating = (TextView) findViewById(R.id.text_view_vote_average);
-        loadMovieDetails();
-    }
-
-    private void loadMovieDetails() {
-        if (getIntent() != null) {
+        if (getIntent() != null && getIntent().getExtras().containsKey(Constanst.MOVIE_EXTRA)) {
             Bundle bundle = getIntent().getExtras();
             Movie movie = bundle.getParcelable(Constanst.MOVIE_EXTRA);
-            assert movie != null;
             getSupportActionBar().setTitle(movie.getTitle());
-            title.setText(movie.getOriginalTitle());
-            title.setSelected(true);
-            description.setText(movie.getOverview());
-            releaseDate.setText(movie.getReleaseDate());
-            userRating.setText(String.valueOf(movie.getVoteAverage()));
-            Picasso.with(this).load(MovieApi.getImageUri(movie.getBackdropPath())).into(image);
         }
     }
 

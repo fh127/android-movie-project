@@ -33,6 +33,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
     }
 
     public MovieAdapter(MovieAdapterOnClickHandler clickHandler) {
+        super();
         mClickHandler = clickHandler;
     }
 
@@ -80,6 +81,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
         Picasso.with(context)
                 .load(imageUrl)
                 .error(android.R.drawable.stat_notify_error)
+                .placeholder(android.R.drawable.stat_sys_download)
                 .into(movieAdapterViewHolder.imageView);
     }
 
