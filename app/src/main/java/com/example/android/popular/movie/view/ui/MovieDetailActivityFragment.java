@@ -11,7 +11,7 @@ import com.example.android.popular.movie.model.entity.Video;
 import com.example.android.popular.movie.presenter.moviedetail.MovieDetailPresenter;
 import com.example.android.popular.movie.presenter.moviedetail.MovieDetailPresenterImpl;
 import com.example.android.popular.movie.presenter.moviedetail.MovieDetailView;
-import com.example.android.popular.movie.utils.Constanst;
+import com.example.android.popular.movie.utils.Constants;
 import com.example.android.popular.movie.utils.MovieUtils;
 import com.example.android.popular.movie.view.adapter.ReviewAdapter;
 import com.example.android.popular.movie.view.adapter.VideoAdapter;
@@ -20,7 +20,6 @@ import com.squareup.picasso.Picasso;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.design.widget.Snackbar;
@@ -100,9 +99,9 @@ public class MovieDetailActivityFragment extends Fragment implements MovieDetail
         reviewRecyclerView.setAdapter(reviewAdapter);
 
         if (getActivity().getIntent() != null
-                && getActivity().getIntent().getExtras().containsKey(Constanst.MOVIE_EXTRA)) {
+                && getActivity().getIntent().getExtras().containsKey(Constants.MOVIE_EXTRA)) {
             Bundle bundle = getActivity().getIntent().getExtras();
-            Movie movie = bundle.getParcelable(Constanst.MOVIE_EXTRA);
+            Movie movie = bundle.getParcelable(Constants.MOVIE_EXTRA);
             assert movie != null;
             loadMovieDetails(movie);
         }
@@ -209,18 +208,18 @@ public class MovieDetailActivityFragment extends Fragment implements MovieDetail
     @Override
     public void onSaveInstanceState(Bundle outState) {
         if (outState != null) {
-            outState.putParcelableArrayList(Constanst.REVIEWS_KEY, (ArrayList<? extends Parcelable>) reviews);
-            outState.putParcelableArrayList(Constanst.VIDEOS_KEY, (ArrayList<? extends Parcelable>) videos);
-            outState.putParcelable(Constanst.MOVIES_DETAILS_KEY, movie);
+            outState.putParcelableArrayList(Constants.REVIEWS_KEY, (ArrayList<? extends Parcelable>) reviews);
+            outState.putParcelableArrayList(Constants.VIDEOS_KEY, (ArrayList<? extends Parcelable>) videos);
+            outState.putParcelable(Constants.MOVIES_DETAILS_KEY, movie);
         }
         super.onSaveInstanceState(outState);
     }
 
     private void restoreSate(Bundle savedInstanceState) {
         if (savedInstanceState != null) {
-            movie = savedInstanceState.getParcelable(Constanst.MOVIES_DETAILS_KEY);
-            videos = savedInstanceState.getParcelableArrayList(Constanst.VIDEOS_KEY);
-            reviews = savedInstanceState.getParcelableArrayList(Constanst.REVIEWS_KEY);
+            movie = savedInstanceState.getParcelable(Constants.MOVIES_DETAILS_KEY);
+            videos = savedInstanceState.getParcelableArrayList(Constants.VIDEOS_KEY);
+            reviews = savedInstanceState.getParcelableArrayList(Constants.REVIEWS_KEY);
             loadMovieDetails(movie);
             showVideos(videos);
             showReviews(reviews);

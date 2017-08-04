@@ -8,7 +8,7 @@ import com.example.android.popular.movie.model.entity.Movie;
 import com.example.android.popular.movie.presenter.movie.MoviePresenter;
 import com.example.android.popular.movie.presenter.movie.MoviePresenterImpl;
 import com.example.android.popular.movie.presenter.movie.MovieView;
-import com.example.android.popular.movie.utils.Constanst;
+import com.example.android.popular.movie.utils.Constants;
 import com.example.android.popular.movie.utils.DeviceUtils;
 import com.example.android.popular.movie.utils.MovieUtils;
 import com.example.android.popular.movie.view.adapter.MovieAdapter;
@@ -55,7 +55,7 @@ public class MovieFragment extends Fragment
 
     private void restoreSate(Bundle savedInstanceState) {
         if (savedInstanceState != null) {
-            movies = savedInstanceState.getParcelableArrayList(Constanst.MOVIES_KEY);
+            movies = savedInstanceState.getParcelableArrayList(Constants.MOVIES_KEY);
             showMovies(movies);
         } else {
             int option = presenter.getCurrentOption();
@@ -157,7 +157,7 @@ public class MovieFragment extends Fragment
     public void onClick(Movie jsonMovie) {
         Intent intent = new Intent(getContext(), MovieDetailActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putParcelable(Constanst.MOVIE_EXTRA, jsonMovie);
+        bundle.putParcelable(Constants.MOVIE_EXTRA, jsonMovie);
         intent.putExtras(bundle);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         if (MovieUtils.isFavoriteMovieOption(presenter.getCurrentOption())) {
@@ -170,7 +170,7 @@ public class MovieFragment extends Fragment
     @Override
     public void onSaveInstanceState(Bundle outState) {
         if (outState != null)
-            outState.putParcelableArrayList(Constanst.MOVIES_KEY, (ArrayList<? extends Parcelable>) movies);
+            outState.putParcelableArrayList(Constants.MOVIES_KEY, (ArrayList<? extends Parcelable>) movies);
         super.onSaveInstanceState(outState);
     }
 

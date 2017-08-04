@@ -11,7 +11,7 @@ import com.example.android.popular.movie.app.MovieApplication;
 import com.example.android.popular.movie.model.api.request.MovieRequestParameter;
 import com.example.android.popular.movie.model.entity.Movie;
 import com.example.android.popular.movie.model.entity.MovieParcelable;
-import com.example.android.popular.movie.model.persistence.MovieDataBaseHelper;
+import com.example.android.popular.movie.model.persistence.MovieDataBaseUtils;
 import com.example.android.popular.movie.model.provider.MovieContentProvider;
 import com.example.android.popular.movie.model.provider.MovieContentProviderHandler;
 import com.example.android.popular.movie.model.services.MovieReceiver;
@@ -58,7 +58,7 @@ public class MovieInteractorImpl
     public void addOrRemoveMovieToFavorites(final Movie movie, OnResponseListener listener) {
         this.listener = listener;
         this.movie = movie;
-        Uri uri = MovieDataBaseHelper.getUriWithId(movie.getId());
+        Uri uri = MovieDataBaseUtils.getUriWithId(movie.getId());
         queryOption = QUERY_FIND_ID;
         contentProviderHandlerReference.startQuery(1, null, uri, null, null, null, null);
     }
@@ -68,24 +68,24 @@ public class MovieInteractorImpl
         this.listener = listener;
         queryOption = QUERY_ALL;
         contentProviderHandlerReference.startQuery(1, null, MovieContentProvider.URI_MOVIE, null, null, null,
-                MovieDataBaseHelper.COLUMN_TITLE);
+                MovieDataBaseUtils.COLUMN_TITLE);
     }
 
     @Override
     public void findFavoriteMovie(final long movieId, final OnResponseListener listener) {
         this.listener = listener;
-        Uri uri = MovieDataBaseHelper.getUriWithId(movieId);
+        Uri uri = MovieDataBaseUtils.getUriWithId(movieId);
         queryOption = QUERY_FIND_BY_ID;
         contentProviderHandlerReference.startQuery(1, null, uri, null, null, null, null);
     }
 
     private void addMovieToFavorites(final Movie movie) {
-        ContentValues values = MovieDataBaseHelper.getContentValues(movie);
+        ContentValues values = MovieDataBaseUtils.getContentValues(movie);
         contentProviderHandlerReference.startInsert(1, null, MovieContentProvider.URI_MOVIE, values);
     }
 
     private void removeMovieToFavorites(final Movie movie) {
-        Uri uriForDelete = MovieDataBaseHelper.getUriWithId(movie.getId());
+        Uri uriForDelete = MovieDataBaseUtils.getUriWithId(movie.getId());
         contentProviderHandlerReference.startDelete(1, null, uriForDelete, null, null);
 
     }
@@ -112,7 +112,7 @@ public class MovieInteractorImpl
         try {
             if (cursor != null) {
                 for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
-                    movies.add(MovieDataBaseHelper.fromContentValues(cursor));
+                    movies.add(MovieDataBaseUtils.fromContentValues(cursor));
                 }
                 if (!cursor.isClosed())
                     cursor.close();

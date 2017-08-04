@@ -1,76 +1,58 @@
 package com.example.android.popular.movie.model.persistence;
 
-import android.content.ContentUris;
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.net.Uri;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import java.util.concurrent.atomic.AtomicInteger;
 
-import com.example.android.popular.movie.model.entity.Movie;
-import com.example.android.popular.movie.model.provider.MovieContentProvider;
+public class MovieDataBaseHelper extends SQLiteOpenHelper {
 
-/**
- * Created by fabianantoniohoyospulido on 7/31/17.
- */
+    private AtomicInteger mOpenCounter = new AtomicInteger();
+    private SQLiteDatabase mDatabase;
+    private static final String DATABASE_NAME = "movies.db";
+    private static final int DATABASE_VERSION = 1;
 
-public class MovieDataBaseHelper {
-    public static final String TABLE_NAME = "movies";
-    public static final String COLUMN_ID = "id";
-    public static final String COLUMN_VOTE_AVERAGE = "voteAverage";
-    public static final String COLUMN_TITLE = "title";
-    public static final String COLUMN_ORIGINAL_TITLE = "originalTitle";
-    public static final String COLUMN_BACKDROP_PATH = "backdropPath";
-    public static final String COLUMN_OVERVIEW = "overview";
-    public static final String COLUMN_RELEASE_DATE = "releaseDate";
-    public static final String COLUMN_PREFERED = "prefered";
+    private static MovieDataBaseHelper instance;
 
-    public static Movie fromContentValues(ContentValues values) {
-        final Movie movie = new Movie();
-        if (values.containsKey(COLUMN_ID))
-            movie.setId(values.getAsInteger(COLUMN_ID));
-        if (values.containsKey(COLUMN_BACKDROP_PATH))
-            movie.setBackdropPath(values.getAsString(COLUMN_BACKDROP_PATH));
-        if (values.containsKey(COLUMN_VOTE_AVERAGE))
-            movie.setVoteAverage(values.getAsDouble(COLUMN_VOTE_AVERAGE));
-        if (values.containsKey(COLUMN_RELEASE_DATE))
-            movie.setReleaseDate(values.getAsString(COLUMN_RELEASE_DATE));
-        if (values.containsKey(COLUMN_OVERVIEW))
-            movie.setOverview(values.getAsString(COLUMN_OVERVIEW));
-        if (values.containsKey(COLUMN_TITLE))
-            movie.setTitle(values.getAsString(COLUMN_TITLE));
-        if (values.containsKey(COLUMN_ORIGINAL_TITLE))
-            movie.setOriginalTitle(values.getAsString(COLUMN_ORIGINAL_TITLE));
-        if (values.containsKey(COLUMN_PREFERED))
-            movie.setPrefered(values.getAsBoolean(COLUMN_PREFERED));
-        return movie;
+    private MovieDataBaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    public static Movie fromContentValues(Cursor values) {
-        final Movie movie = new Movie();
-        movie.setId(values.getInt(values.getColumnIndexOrThrow(COLUMN_ID)));
-        movie.setBackdropPath(values.getString(values.getColumnIndexOrThrow(COLUMN_BACKDROP_PATH)));
-        movie.setVoteAverage(values.getDouble(values.getColumnIndexOrThrow(COLUMN_VOTE_AVERAGE)));
-        movie.setReleaseDate(values.getString(values.getColumnIndexOrThrow(COLUMN_RELEASE_DATE)));
-        movie.setOverview(values.getString(values.getColumnIndexOrThrow(COLUMN_OVERVIEW)));
-        movie.setTitle(values.getString(values.getColumnIndexOrThrow(COLUMN_TITLE)));
-        movie.setOriginalTitle(values.getString(values.getColumnIndexOrThrow(COLUMN_ORIGINAL_TITLE)));
-        movie.setPrefered(true);
-        return movie;
+    public static synchronized void initializeInstance(Context context) {
+        if (instance == null) {
+            instance = new MovieDataBaseHelper(context);
+        }
     }
 
-    public static ContentValues getContentValues(Movie movie) {
-        ContentValues values = new ContentValues();
-        values.put(MovieDataBaseHelper.COLUMN_ID, movie.getId());
-        values.put(MovieDataBaseHelper.COLUMN_ORIGINAL_TITLE, movie.getOriginalTitle());
-        values.put(MovieDataBaseHelper.COLUMN_TITLE, movie.getTitle());
-        values.put(MovieDataBaseHelper.COLUMN_BACKDROP_PATH, movie.getBackdropPath());
-        values.put(MovieDataBaseHelper.COLUMN_OVERVIEW, movie.getOverview());
-        values.put(MovieDataBaseHelper.COLUMN_PREFERED, movie.isPrefered());
-        values.put(MovieDataBaseHelper.COLUMN_RELEASE_DATE, movie.getReleaseDate());
-        values.put(MovieDataBaseHelper.COLUMN_VOTE_AVERAGE, movie.getVoteAverage());
-        return values;
+    public static MovieDataBaseHelper getInstance() {
+        if (instance == null) {
+            throw new IllegalStateException(MovieDataBaseHelper.class.getSimpleName()
+                    + " is not initialized, call initializeInstance(Context context) method first.");
+        }
+        return instance;
     }
 
-    public static Uri getUriWithId(long id) {
-        return ContentUris.withAppendedId(MovieContentProvider.URI_MOVIE, id);
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        MovieDataBaseUtils.onCreate(db);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        MovieDataBaseUtils.onUpgrade(db, oldVersion, newVersion);
+    }
+
+    public synchronized SQLiteDatabase openDataBase() {
+        if(mOpenCounter.incrementAndGet() == 1) {
+            mDatabase = getWritableDatabase();
+        }
+        return mDatabase;
+    }
+
+    public synchronized void closeDataBase() {
+        if(mOpenCounter.decrementAndGet() == 0) {
+            mDatabase.close();
+
+        }
     }
 }

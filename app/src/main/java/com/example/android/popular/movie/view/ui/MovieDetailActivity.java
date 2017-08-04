@@ -2,12 +2,8 @@ package com.example.android.popular.movie.view.ui;
 
 import com.example.android.popular.movie.R;
 import com.example.android.popular.movie.model.entity.Movie;
-import com.example.android.popular.movie.utils.Constanst;
-import com.example.android.popular.movie.utils.MovieUtils;
-import com.example.android.popular.movie.utils.PreferenceUtils;
+import com.example.android.popular.movie.utils.Constants;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -27,9 +23,9 @@ public class MovieDetailActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-        if (getIntent() != null && getIntent().getExtras().containsKey(Constanst.MOVIE_EXTRA)) {
+        if (getIntent() != null && getIntent().getExtras().containsKey(Constants.MOVIE_EXTRA)) {
             Bundle bundle = getIntent().getExtras();
-            Movie movie = bundle.getParcelable(Constanst.MOVIE_EXTRA);
+            Movie movie = bundle.getParcelable(Constants.MOVIE_EXTRA);
             getSupportActionBar().setTitle(movie.getTitle());
         }
     }

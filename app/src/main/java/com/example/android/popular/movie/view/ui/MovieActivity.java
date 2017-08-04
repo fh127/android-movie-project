@@ -1,7 +1,7 @@
 package com.example.android.popular.movie.view.ui;
 
 import com.example.android.popular.movie.R;
-import com.example.android.popular.movie.utils.Constanst;
+import com.example.android.popular.movie.utils.Constants;
 import com.example.android.popular.movie.utils.MovieUtils;
 import com.example.android.popular.movie.utils.PreferenceUtils;
 import android.os.Bundle;
@@ -29,7 +29,7 @@ public class MovieActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        String menuTitleOptionSelected = PreferenceUtils.getInstance().getStringValue(Constanst.MENU_ITEM_OPTION);
+        String menuTitleOptionSelected = PreferenceUtils.getInstance().getStringValue(Constants.MENU_ITEM_OPTION);
         if (!TextUtils.isEmpty(menuTitleOptionSelected)) {
             menu.findItem(R.id.action_movies_message).setTitle(menuTitleOptionSelected);
         }
@@ -41,8 +41,8 @@ public class MovieActivity extends AppCompatActivity {
         int option = MovieUtils.movieMenuUiOption.get(item.getItemId());
         ActionMenuItemView menuItem = (ActionMenuItemView) findViewById(R.id.action_movies_message);
         menuItem.setTitle(item.getTitle());
-        PreferenceUtils.getInstance().setStringValue(Constanst.MENU_ITEM_OPTION, item.getTitle().toString());
-        PreferenceUtils.getInstance().setIntValue(Constanst.MENU_ITEM_ID, option);
+        PreferenceUtils.getInstance().setStringValue(Constants.MENU_ITEM_OPTION, item.getTitle().toString());
+        PreferenceUtils.getInstance().setIntValue(Constants.MENU_ITEM_ID, option);
         fragmentListener.sortMovies(option);
         return true;
     }

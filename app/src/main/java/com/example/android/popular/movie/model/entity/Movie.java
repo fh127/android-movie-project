@@ -1,26 +1,19 @@
 package com.example.android.popular.movie.model.entity;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.Ignore;
-import android.arch.persistence.room.PrimaryKey;
-import android.content.ContentValues;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.renderscript.Sampler;
 import android.support.annotation.NonNull;
-import android.support.design.internal.ParcelableSparseArray;
 
 /**
  * Created by fabianantoniohoyospulido on 7/24/17.
  */
-@Entity(tableName = "movies")
+
 public class Movie implements Parcelable, MovieParcelable {
 
 
     public Movie() {
     }
 
-    @PrimaryKey
     private Integer id;
     private Double voteAverage;
     private String title;
@@ -165,7 +158,6 @@ public class Movie implements Parcelable, MovieParcelable {
         }
     }
 
-    @Ignore
     private Movie(Builder builder) {
         setId(builder.id);
         setVoteAverage(builder.voteAverage);
@@ -179,7 +171,6 @@ public class Movie implements Parcelable, MovieParcelable {
 
     // Parcelable configuration
 
-    @Ignore
     protected Movie(Parcel in) {
         this.id = (Integer) in.readValue(Integer.class.getClassLoader());
         this.voteAverage = (Double) in.readValue(Double.class.getClassLoader());

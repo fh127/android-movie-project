@@ -13,7 +13,7 @@ import com.example.android.popular.movie.model.entity.Review;
 import com.example.android.popular.movie.model.entity.Video;
 import com.example.android.popular.movie.presenter.MovieInteractor;
 import com.example.android.popular.movie.presenter.MovieInteractorImpl;
-import com.example.android.popular.movie.utils.Constanst;
+import com.example.android.popular.movie.utils.Constants;
 import com.example.android.popular.movie.utils.PreferenceUtils;
 
 /**
@@ -46,7 +46,7 @@ public class MovieDetailPresenterImpl implements MovieDetailPresenter, MovieInte
 
     @Override
     public int getCurrentOption() {
-        return PreferenceUtils.getInstance().getIntValue(Constanst.MENU_ITEM_ID);
+        return PreferenceUtils.getInstance().getIntValue(Constants.MENU_ITEM_ID);
     }
 
     @Override
@@ -81,7 +81,7 @@ public class MovieDetailPresenterImpl implements MovieDetailPresenter, MovieInte
 
     @Override
     public void onErrorMovieFavoriteList() {
-        view.ShowErrorMessage(Constanst.ERROR_MESSAGE_MOVIE_FAVORITE);
+        view.ShowErrorMessage(Constants.ERROR_MESSAGE_MOVIE_FAVORITE);
     }
 
     @Override

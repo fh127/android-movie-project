@@ -11,7 +11,7 @@ import com.example.android.popular.movie.model.entity.Movie;
 import com.example.android.popular.movie.model.entity.MovieParcelable;
 import com.example.android.popular.movie.presenter.MovieInteractor;
 import com.example.android.popular.movie.presenter.MovieInteractorImpl;
-import com.example.android.popular.movie.utils.Constanst;
+import com.example.android.popular.movie.utils.Constants;
 import com.example.android.popular.movie.utils.MovieUtils;
 import com.example.android.popular.movie.utils.NetworkUtils;
 import com.example.android.popular.movie.utils.PreferenceUtils;
@@ -38,7 +38,7 @@ public class MoviePresenterImpl implements MoviePresenter, MovieInteractor.OnRes
             view.onShowLoader(true);
             processMovieOption(option);
         } else {
-            view.ShowErrorMessage(Constanst.ERROR_MESSAGE_CONNECTION);
+            view.ShowErrorMessage(Constants.ERROR_MESSAGE_CONNECTION);
         }
     }
 
@@ -56,7 +56,7 @@ public class MoviePresenterImpl implements MoviePresenter, MovieInteractor.OnRes
 
     @Override
     public int getCurrentOption() {
-        return PreferenceUtils.getInstance().getIntValue(Constanst.MENU_ITEM_ID);
+        return PreferenceUtils.getInstance().getIntValue(Constants.MENU_ITEM_ID);
     }
 
     private void processMovieOption(int option) {
@@ -68,7 +68,7 @@ public class MoviePresenterImpl implements MoviePresenter, MovieInteractor.OnRes
     @Override
     public void onResponseError() {
         view.onShowLoader(false);
-        view.ShowErrorMessage(Constanst.ERROR_MESSAGE_MOVIES);
+        view.ShowErrorMessage(Constants.ERROR_MESSAGE_MOVIES);
     }
 
     @Override
@@ -100,7 +100,7 @@ public class MoviePresenterImpl implements MoviePresenter, MovieInteractor.OnRes
         if (MovieUtils.isNotEmpty(movies)) {
             view.onMoviesLoaded(movies);
         } else {
-            view.ShowErrorMessage(Constanst.ERROR_MESSAGE_MOVIE_FAVORITE_LIST);
+            view.ShowErrorMessage(Constants.ERROR_MESSAGE_MOVIE_FAVORITE_LIST);
         }
     }
 
