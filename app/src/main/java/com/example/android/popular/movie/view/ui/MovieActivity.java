@@ -4,6 +4,7 @@ import com.example.android.popular.movie.R;
 import com.example.android.popular.movie.utils.Constants;
 import com.example.android.popular.movie.utils.MovieUtils;
 import com.example.android.popular.movie.utils.PreferenceUtils;
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.menu.ActionMenuItemView;
@@ -13,8 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MovieActivity extends AppCompatActivity {
-
-    private MovieFragmentListener fragmentListener;
+    private MovieFragment fragmentListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,8 @@ public class MovieActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        fragmentListener = (MovieFragmentListener) getSupportFragmentManager().findFragmentById(R.id.fragment);
+        fragmentListener = (MovieFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
+
     }
 
     @Override

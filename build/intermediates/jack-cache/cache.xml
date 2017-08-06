@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/fabianantoniohoyospulido/.android/build-cache/201c4e870cca7d2a16b3e719f5c1786ff085195f/output/jars/classes.jar"
+        revision="26.0.1"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/Users/fabianantoniohoyospulido/Documents/udacity-developing-apps/android-movie-project/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-81580edd045bd9ac95b0dc62964fb52e52629aed.jar" />
+    </item>
+    <item
+        jar="/Users/fabianantoniohoyospulido/.android/build-cache/440d8d8048f73eab86bea149681bb9ed691f25af/output/jars/classes.jar"
+        revision="26.0.1"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="/Users/fabianantoniohoyospulido/Documents/udacity-developing-apps/android-movie-project/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-8172cb5a19a7caace5cde4c4a9b82d80b562fc9b.jar" />
+    </item>
+    <item
+        jar="/Users/fabianantoniohoyospulido/.android/build-cache/967d68d334905524c5255db68eaf45b7d73733ac/output/jars/classes.jar"
+        revision="26.0.1"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/Users/fabianantoniohoyospulido/Documents/udacity-developing-apps/android-movie-project/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-ae12e18d44721fa360c4272196bfabb15f429262.jar" />
+    </item>
+    <item
+        jar="/Users/fabianantoniohoyospulido/.android/build-cache/6486abdeb0a44bed9ad8030d90913f93ca1ab082/output/jars/classes.jar"
+        revision="26.0.1"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/Users/fabianantoniohoyospulido/Documents/udacity-developing-apps/android-movie-project/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-b3b7d6d0bf8bdf96f58151715fb164247ecd393c.jar" />
+    </item>
+    <item
+        jar="/Users/fabianantoniohoyospulido/.android/build-cache/a3630c5eb9f9b285b53d25683084366f7755bc0c/output/jars/classes.jar"
+        revision="26.0.1"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="/Users/fabianantoniohoyospulido/Documents/udacity-developing-apps/android-movie-project/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-58aba8a5f61d8be94d69d741e48b732b1916abda.jar" />
+    </item>
+    <item
+        jar="/Users/fabianantoniohoyospulido/.android/build-cache/d1b37ddfbfa38adde699a778b00a06ac5a8e0dbe/output/jars/classes.jar"
+        revision="26.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/fabianantoniohoyospulido/Documents/udacity-developing-apps/android-movie-project/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-c90d036c6b32d2992832b1109f0cda4744dd1d52.jar" />
+    </item>
+    <item
+        jar="/Users/fabianantoniohoyospulido/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        revision="26.0.1"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/fabianantoniohoyospulido/Documents/udacity-developing-apps/android-movie-project/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/constraint-layout-solver-1.0.2-fcf1e48e4899128eeb670bf7ca306157d55f599e.jar" />
+    </item>
+    <item
+        jar="/Users/fabianantoniohoyospulido/.android/build-cache/2e923fbc868f270658e7468f0a05ac6e2b1ef30a/output/jars/classes.jar"
+        revision="26.0.1"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/fabianantoniohoyospulido/Documents/udacity-developing-apps/android-movie-project/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-9572478c98caab743397a4863dc9c8c30f813ff5.jar" />
+    </item>
+    <item
+        jar="/Users/fabianantoniohoyospulido/.android/build-cache/8f43f9d04fb64023cd2361af7b882bcfddccc00c/output/jars/classes.jar"
+        revision="26.0.1"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/Users/fabianantoniohoyospulido/Documents/udacity-developing-apps/android-movie-project/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-902615085633881b2d9dbb03bcc1776c8de287e2.jar" />
+    </item>
+    <item
+        jar="/Users/fabianantoniohoyospulido/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.0/c4ba5371a29ac9b2ad6129b1d39ea38750043eff/gson-2.8.0.jar"
+        revision="26.0.1"
+        sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
+        <dex dex="/Users/fabianantoniohoyospulido/Documents/udacity-developing-apps/android-movie-project/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/gson-2.8.0-aef0c083e580bf5fe21950995ce09110db3090a6.jar" />
+    </item>
+    <item
+        jar="/Users/fabianantoniohoyospulido/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        revision="26.0.1"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/fabianantoniohoyospulido/Documents/udacity-developing-apps/android-movie-project/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/picasso-2.5.2-e54e65163f778d1bc17487d5ae9f757b4c9c3955.jar" />
+    </item>
+    <item
+        jar="/Users/fabianantoniohoyospulido/.android/build-cache/279490cb2a1bc07559fbd854c814010115785b3a/output/jars/classes.jar"
+        revision="26.0.1"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="/Users/fabianantoniohoyospulido/Documents/udacity-developing-apps/android-movie-project/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-b5e15128419c8a488f85a8365f06d0cb994aff5c.jar" />
+    </item>
+    <item
+        jar="/Users/fabianantoniohoyospulido/.android/build-cache/9b21b96124769cf640cc58325a26f1fecb98f141/output/jars/classes.jar"
+        revision="26.0.1"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/Users/fabianantoniohoyospulido/Documents/udacity-developing-apps/android-movie-project/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-1abb5cc436e829a392fd1ea078907cb3d0a46bb1.jar" />
+    </item>
+    <item
+        jar="/Users/fabianantoniohoyospulido/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        revision="26.0.1"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/Users/fabianantoniohoyospulido/Documents/udacity-developing-apps/android-movie-project/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/support-annotations-25.3.1-fe8a1411b1799a02f1be5468d65e58c2323b3294.jar" />
+    </item>
+    <item
+        jar="/Users/fabianantoniohoyospulido/.android/build-cache/3b1586b9bd7aa16cfc86a64a52f1bdfe17b27dec/output/jars/classes.jar"
+        revision="26.0.1"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/Users/fabianantoniohoyospulido/Documents/udacity-developing-apps/android-movie-project/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-7ddff5d6c781baa5429f58073b789aa120f4d8b3.jar" />
+    </item>
+    <item
+        jar="/Users/fabianantoniohoyospulido/.android/build-cache/c4c5c85b1ea6e03e8e1f5e57e3f5927ee042d4b7/output/jars/classes.jar"
+        revision="26.0.1"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/Users/fabianantoniohoyospulido/Documents/udacity-developing-apps/android-movie-project/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-089e05e066c4a96ccb2f710a1d6ece589ca673c4.jar" />
+    </item>
+    <item
+        jar="/Users/fabianantoniohoyospulido/.android/build-cache/6a0d6ed2cabfb209407a9b3bdfe4a14647798616/output/jars/classes.jar"
+        revision="26.0.1"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/Users/fabianantoniohoyospulido/Documents/udacity-developing-apps/android-movie-project/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-aee019231cbaa779bc8ee69e2414652e2601df4c.jar" />
+    </item>
+
+</items>

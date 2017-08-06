@@ -187,22 +187,12 @@ public class MovieDetailActivityFragment extends Fragment implements MovieDetail
 
     private void showVideos(final List<Video> videos) {
         this.videos = videos;
-        videoRecyclerView.post(new Runnable() {
-            @Override
-            public void run() {
-                videoAdapter.setVideos(videos);
-            }
-        });
+        videoRecyclerView.post(() -> videoAdapter.setVideos(videos));
     }
 
     private void showReviews(final List<Review> reviews) {
         this.reviews = reviews;
-        reviewRecyclerView.post(new Runnable() {
-            @Override
-            public void run() {
-                reviewAdapter.setReviews(reviews);
-            }
-        });
+        reviewRecyclerView.post(() -> reviewAdapter.setReviews(reviews));
     }
 
     @Override
