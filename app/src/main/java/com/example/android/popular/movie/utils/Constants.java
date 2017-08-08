@@ -16,6 +16,7 @@ public class Constants {
     // key 
     public static final String MOVIE_EXTRA = "movie";
     public static final String MOVIES_KEY = "movies";
+    public static final String MOVIES_PARCELABLE_STATE_LIST = "stateList";
     public static final String MENU_ITEM_OPTION = "menu_option";
     public static final String MENU_ITEM_ID = "menu_id";
     public static final String MOVIES_DETAILS_KEY = "movie_detail_key";

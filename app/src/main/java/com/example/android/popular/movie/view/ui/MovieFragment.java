@@ -25,6 +25,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+
+
 import android.widget.ProgressBar;
 
 /**
@@ -39,6 +42,7 @@ public class MovieFragment extends Fragment
     private RecyclerView movieRecyclerView;
     private MovieAdapter movieAdapter;
     private Parcelable listState;
+    private List<Movie> movies;
     private boolean isShouldLoadFavoriteProvider;
 
     public MovieFragment() {
@@ -79,9 +83,12 @@ public class MovieFragment extends Fragment
         listState = null;
 
         if (savedInstanceState != null) {
-            listState = savedInstanceState.getParcelable(Constants.MOVIES_KEY);
+            this.movies = savedInstanceState.getParcelableArrayList(Constants.MOVIES_KEY);
+            listState = savedInstanceState.getParcelable(Constants.MOVIES_PARCELABLE_STATE_LIST);
+            showMovies(movies);
+        } else {
+            restoreOption();
         }
-        restoreOption();
     }
 
     private void restoreOption() {
@@ -121,6 +128,7 @@ public class MovieFragment extends Fragment
     }
 
     public void showMovies(final List<Movie> movies) {
+        this.movies = movies;
         movieRecyclerView.post(() -> {
             onShowLoader(false);
             if (listState != null) {
@@ -166,7 +174,8 @@ public class MovieFragment extends Fragment
     public void onSaveInstanceState(Bundle outState) {
         if (outState != null) {
             listState = movieRecyclerView.getLayoutManager().onSaveInstanceState();
-            outState.putParcelable(Constants.MOVIES_KEY, listState);
+            outState.putParcelable(Constants.MOVIES_PARCELABLE_STATE_LIST, listState);
+            outState.putParcelableArrayList(Constants.MOVIES_KEY, (ArrayList<? extends Parcelable>) movies);
         }
         super.onSaveInstanceState(outState);
 
